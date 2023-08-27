@@ -52,7 +52,7 @@ const styles = {
     flex: 0.15,
     justifyContent: 'center',
     backgroundColor: '#dc3545',
-    padding: 12,
+    padding: 15,
     borderRadius: 5,
   },
   deleteIcon: {

@@ -21,9 +21,20 @@ function App(): JSX.Element {
 
   // Show Loading Skeleton then set Loading to false
   useEffect(() => {
-    setTimeout(() => {
-      SetIsLoading(false);
-    }, 2000);
+    // setTimeout(() => {
+    //   SetIsLoading(false);
+    // }, 2000);
+    fetch('https://localhost:7189/todoitems').then(
+      val => {
+        if (val) {
+          SetToDos([...val]);
+        }
+        SetIsLoading(false);
+      },
+      error => {
+        SetIsLoading(false);
+      },
+    );
   }, []);
 
   const addToDo = toDo => {
