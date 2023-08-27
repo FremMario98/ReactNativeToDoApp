@@ -22,7 +22,7 @@ function AddToDo({onAddToDo}) {
       </View>
       <View style={styles.btnAddToDoView}>
         <View style={styles.btnAddView}>
-          <Pressable style-={styles.btnAdd} onPress={addToDo}>
+          <Pressable style-={styles.btnAdd} onPress={addToDo} disabled={!toDo}>
             <FontAwesomeIcon
               style={styles.addPlusIcon}
               icon={faPlus}

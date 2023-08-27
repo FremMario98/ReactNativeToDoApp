@@ -1,11 +1,4 @@
-import {
-  faArrowAltCircleRight,
-  faArrowRight,
-  faCircle,
-  faDotCircle,
-  faListDots,
-  faTrash,
-} from '@fortawesome/free-solid-svg-icons';
+import {faDotCircle, faTrash} from '@fortawesome/free-solid-svg-icons';
 import {FontAwesomeIcon} from '@fortawesome/react-native-fontawesome';
 import React from 'react';
 import {Pressable, Text, View} from 'react-native';
@@ -24,9 +17,15 @@ function ListItem({toDo, onDelete}) {
         </View>
       </View>
       <View style={styles.deleteView}>
-        <Pressable onPress={onDelete}>
-          <FontAwesomeIcon style={styles.deleteIcon} icon={faTrash} size={20} />
-        </Pressable>
+        <View style={styles.pressableDeleteView}>
+          <Pressable onPress={onDelete} style={styles.pressableDelete}>
+            <FontAwesomeIcon
+              style={styles.deleteIcon}
+              icon={faTrash}
+              size={20}
+            />
+          </Pressable>
+        </View>
       </View>
     </View>
   );
@@ -36,7 +35,7 @@ const styles = {
   rowView: {
     flex: 1,
     flexDirection: 'row',
-    marginVertical: 10,
+    paddingVertical: 10,
   },
   toDoView: {
     flex: 0.85,
@@ -52,9 +51,8 @@ const styles = {
   deleteView: {
     flex: 0.15,
     justifyContent: 'center',
-    alignItems: 'center',
     backgroundColor: '#dc3545',
-    padding: 15,
+    padding: 12,
     borderRadius: 5,
   },
   deleteIcon: {
@@ -64,6 +62,16 @@ const styles = {
   toDoIcon: {
     color: '#0d6efd',
     marginRight: 10,
+  },
+  pressableDeleteView: {
+    flex: 1,
+    flexDirection: 'row',
+    alignItems: 'center',
+  },
+  pressableDelete: {
+    flex: 1,
+    flexDirection: 'row',
+    justifyContent: 'center',
   },
 };
 
